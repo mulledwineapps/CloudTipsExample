@@ -15,6 +15,7 @@ android {
         versionName = "1.0"
 
         manifestPlaceholders["YANDEX_CLIENT_ID"] = ""
+        manifestPlaceholders["CTSDK_CLIENT_ID"] = ""
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
@@ -69,5 +70,6 @@ dependencies {
     androidTestImplementation("androidx.compose.ui:ui-test-junit4")
     debugImplementation("androidx.compose.ui:ui-tooling")
 
-    implementation("com.github.cloudpayments:CloudTips-SDK-Android:2.0.1")
+    // implementation("com.github.cloudpayments:CloudTips-SDK-Android:2.0.1")
+    implementation("ru.cloudpayments.gitpub.integrations.sdk.cloudtips-android:sdk:2.3.0")
 }

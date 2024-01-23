@@ -21,42 +21,37 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             CloudTipsExampleTheme {
-                // A surface container using the 'background' color from the theme
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.background
-                ) {
-                    Greeting("Android")
-
-                    val context = LocalContext.current
-                    Button(
-                        onClick = {
-                            TipsManager
-                                .getInstance(context)
-                                .launch("4bba4a70")
-                        },
-                        modifier = Modifier.wrapContentSize()
-                    ) {
-                        Text(text = "Запустить оплату чаевых")
-                    }
-                }
+                Content()
             }
         }
     }
 }
 
 @Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
+fun Content(modifier: Modifier = Modifier) {
+    // A surface container using the 'background' color from the theme
+    Surface(
+        modifier = modifier.fillMaxSize(),
+        color = MaterialTheme.colorScheme.background
+    ) {
+        val context = LocalContext.current
+        Button(
+            onClick = {
+                TipsManager
+                    .getInstance(context)
+                    .launch("4bba4a70", null)
+            },
+            modifier = Modifier.wrapContentSize()
+        ) {
+            Text(text = "Запустить оплату чаевых")
+        }
+    }
 }
 
 @Preview(showBackground = true)
 @Composable
 fun GreetingPreview() {
     CloudTipsExampleTheme {
-        Greeting("Android")
+        Content()
     }
 }
